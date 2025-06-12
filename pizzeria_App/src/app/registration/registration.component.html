@@ -1,0 +1,26 @@
+
+<!-- <h3 style="color: green;" *ngIf="data">Registration Successfull</h3> -->
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4 mtop">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">User Registration</h5>
+                    <form #formdata="ngForm" (ngSubmit)="register(formdata.value)">
+                        <div class="form-group">
+                            <label for="uname" class="text-muted">Username</label>
+                            <input type="text" name="uname" id="uname" class="form-control" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="upass" class="text-muted">Password</label>
+                            <input type="password" name="upass" id="upass" class="form-control" ngModel>
+                        </div>
+                        <button type="submit" class="btn btn-warning btn-block mt-4 ">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

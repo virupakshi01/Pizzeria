@@ -1,0 +1,155 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col mtop">
+                    <hr>
+                </div>
+                <div class="col-auto mtop">
+                    <h4 class="text-capitalize ">my cart</h4>
+                </div>
+                <div class="col mtop">
+                    <hr>
+                </div>
+            </div>
+            
+
+            <!-- new pizza cart design -->
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-sm-auto mt-4">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Item</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let c of cartData">
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img [src]="c.image" alt="Pizza Image" class="me-2" style="max-width: 60px;">
+                                            <div>
+                                                <p class="mb-0">{{ c.name }}</p>
+                                                <span class="badge bg-success" *ngIf="c.type === 'veg'">Veg</span>
+                                                <span class="badge bg-danger" *ngIf="c.type === 'nonveg'">Non-Veg</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>&#8377; {{ c.price }}</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <button type="button" class="btn btn-outline-warning  btn-sm me-2" (click)="decrese(c)">-</button>
+                                            <input type="text" class="form-control  text-center" value="{{ c.qty }}" min="1" max="10" disabled>
+                                            <button type="button" class="btn btn-outline-warning btn-sm ms-2" (click)="increse(c)">+</button>
+                                        </div>
+                                    </td>
+                                    <td>&#8377; {{ calculatePrice(c) }}</td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm" (click)="remove(c)">
+                                            <i class="fas fa-trash"></i> Remove
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6"><span class="float-end fw-bold text-end">Sub Total: &#8377;{{ subtotal }}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            
+
+
+            
+            
+            
+        
+
+
+<!-- new ingredient design -->
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-sm-auto mt-4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col"></th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="p-3" *ngFor="let t of toppings" >
+                            <!-- <td><img [src]="t.image" class="cart-pizza "></td> -->
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img [src]="t.image" alt="Pizza Image" class="me-2" style="max-width: 60px;">
+                                        <div>
+                                            <!-- <p class="mb-0">{{ t.name }}</p> -->
+                                            <b class="text-capitalize">{{t.tname}}</b>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
+                            <td> 
+                                <span>&#8377;{{calculateIngrePrice(t)}}</span>
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    
+                                </div>
+                            </td>
+                           
+                            <td>  <button class="btn btn-danger btn-sm" (click)="removeIngr(t)"><i class="fa fas fa-trash">Remove</i></button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6"><span class="float-end fw-bold text-end">Sub Total:&nbsp; &#8377;{{IngreSubtotal}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+
+
+
+<!-- new payment design -->
+<div class="col-md-4 mtop">
+    <div class="card border-0 shadow">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-4">Payment Details</h5>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item d-flex justify-content-between align-items-center border-bottom">
+                    Pizza:
+                    <span >&#8377;{{subtotal}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center border-bottom">
+                    Toppings:
+                    <span >&#8377;{{IngreSubtotal}}</span>
+                </li>
+            </ul>
+            <div class="card-footer bg-transparent border-0 text-center">
+                Total Amount: <span class="fw-bold">&#8377;{{subtotal + IngreSubtotal}}</span>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="button" class="btn btn-warning btn-md">Proceed to Pay</button>
+                <button type="button" class="btn btn-outline-dark btn-md" (click)="clear()">Clear Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

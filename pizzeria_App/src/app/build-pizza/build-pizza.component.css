@@ -1,0 +1,17 @@
+table th {
+    text-align: center; 
+ }
+ 
+ .table {
+    margin: auto;
+    width: 50% !important; 
+    border-collapse: initial;
+    border:1px solid black;
+ }
+
+ .btn{
+    background-color: black;
+    color: orange;
+    justify-content: center;
+ }
+

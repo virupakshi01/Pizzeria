@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4 mtop">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">User Login</h5>
+                    <form #formdata="ngForm" (ngSubmit)="login(formdata.value)">
+                        <div class="form-group">
+                            <label for="uname" class="text-muted">Enter Username</label>
+                            <input type="text" name="uname" id="uname" class="form-control" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="upass" class="text-muted">Enter Password</label>
+                            <input type="password" name="upass" id="upass" class="form-control" ngModel>
+                        </div>
+                        <button type="submit" class="btn btn-warning btn-block mt-4">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

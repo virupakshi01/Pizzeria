@@ -1,0 +1,21 @@
+<p class="text-center">Pizzeria now gives you option to build your own pizza. Customize your pizza from the ingredients list given below.</p>
+<div class="container">
+<div class="row">
+
+    <table class="table table-striped col-12 col-sm-8 offset-sm-2">
+        <tbody>
+            <tr *ngFor="let ing of ingredients; let i = index">
+                <td><img [src]="ing.image" style="width: 20%; height: 20%;"></td>
+                <td><strong>{{ing.tname}} &nbsp; {{ing.price|currency:'INR'}}</strong></td>
+                <td style="color: darkorange;"><input type="checkbox" name="ing{{ing.id}}" (change)="calcCost(ing,$event)"> Add</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <h5 class=" col-12 col-sm-5 offset-sm-2">Total Cost: &#8377;{{cost}}</h5>
+</div>
+<div class="row">
+    <button class="btn btn-dark btn-outline-warning col-5 col-sm-2 offset-3 offset-sm-5" routerLink="/cart" routerLinkActive="selectedroute" (click)="sendIngredients()" >Build Pizza</button>
+</div>
+</div>

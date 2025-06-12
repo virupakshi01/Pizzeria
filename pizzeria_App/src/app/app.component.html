@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-2" href="#">Pizzeria</a>
+      <img src="./assets/PizzeriaLogo.png" alt="" width="60px" height="50px">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon bg-warning"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" routerLink="/home" routerLinkActive="selectedroute">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/orderPizza" routerLinkActive="selectedroute">Order Pizza</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/buildpizza" routerLinkActive="selectedroute">Build Your Pizza</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register" routerLinkActive="selectedroute">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="selectedroute">Login</a>
+          </li>
+        </ul>
+          <button class="btn" type="submit" routerLink="/cart" routerLinkActive="selectedroute"><img src="./assets/ShoopingCart.png" alt="" width="20px" height="20px">  Shopping Cart</button>
+      </div>
+    </div>
+
+  </nav>
+
+  <router-outlet></router-outlet>
+  <br><br>
+  
+  <footer id="sticky-footer" class="flex-shrink-0 py-2  text-warning">
+    <div class="container text-center">
+      <i><small>Copyright &copy; 2017 Pizzeria . All Rights Reserved</small></i>
+    </div>
+  </footer>
